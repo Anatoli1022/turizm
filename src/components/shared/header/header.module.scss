@@ -1,0 +1,40 @@
+.header {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100px;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  justify-content: end;
+}
+
+.item {
+  margin-left: 30px;
+}
+
+.link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #3c2914;
+  text-transform: capitalize;
+  transition: 0.3s;
+  &:hover {
+    color: #b17d42;
+  }
+}

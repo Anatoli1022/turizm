@@ -1,0 +1,45 @@
+// Colors
+$color-primary: #2a524c;
+$color-secondary: #f2c94c;
+$color-tertiary: #323232;
+
+$color-white: #fff;
+$color-accent-secondary: '';
+
+$color-primary-hover: '';
+$color-accent-primary-hover: '';
+$color-accent-secondary-hover: '';
+
+// Fonts
+$font-family-primary: 'League Spartan';
+$font-family-secondary: sans-serif;
+
+$font-size-base: '';
+$line-height-base: '';
+
+$font-size-xxl: '';
+$line-height-xxl: '';
+
+$font-size-xl: '';
+$line-height-xl: '';
+
+$font-size-lg: 32px;
+$line-height-lg: '';
+
+$font-size-md: 24px;
+$line-height-md: '';
+
+$font-size-sm: 18px;
+$line-height-sm: '';
+
+$font-size-xs: '';
+$line-height-xs: '';
+
+// Animate
+$transition-base: 0.3s;
+
+// Breakpoints
+$breakpoint-lg-down: 1280px - 0.02px;
+$breakpoint-md-down: 1024px - 0.02px;
+$breakpoint-sm-down: 768px - 0.02px;
+$breakpoint-xs-down: 414px - 0.02px;

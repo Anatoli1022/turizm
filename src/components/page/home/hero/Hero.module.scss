@@ -1,0 +1,36 @@
+.hero {
+  position: relative;
+  padding-top: 300px;
+  padding-bottom: 200px;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 1280px;
+  object-fit: cover;
+  object-position: right bottom;
+  z-index: -1;
+}
+
+.title {
+  font-family: 'Kaushan Script';
+  text-align: center;
+  font-size: 30px;
+  color: #3c2914;
+  text-transform: uppercase;
+}
+
+.title-span {
+  font-size: 70px;
+  display: block;
+}
+
+.text {
+  text-align: center;
+  text-transform: uppercase;
+}

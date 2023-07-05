@@ -4,7 +4,6 @@
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 1;
 }
 
@@ -29,8 +28,9 @@
 }
 
 .link {
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
+  font-weight: 600;
   color: #3c2914;
   text-transform: capitalize;
   transition: 0.3s;

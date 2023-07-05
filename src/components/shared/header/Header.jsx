@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 import logo from '../../../images/logo.svg';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -8,28 +9,28 @@ const Header = () => {
   return (
     <header className={cx('header')}>
       <div className={cx('container')}>
-        <navigation className={cx('navigation')}>
-          <a href="/">
+        <nav className={cx('navigation')}>
+          <Link to="/">
             <img src={logo} loading="eager" alt="" className={cx('logo')} />
-          </a>
+          </Link>
           <ul className={cx('list')}>
             <li className={cx('item')}>
-              <a href="" className={cx('link')}>
+              <Link to="/" className={cx('link')}>
                 home
-              </a>
+              </Link>
             </li>
             <li className={cx('item')}>
-              <a href="" className={cx('link')}>
+              <Link to="/products" className={cx('link')}>
                 product
-              </a>
+              </Link>
             </li>
             <li className={cx('item')}>
-              <a href="" className={cx('link')}>
+              <Link to="/" className={cx('link')}>
                 contact
-              </a>
+              </Link>
             </li>
           </ul>
-        </navigation>
+        </nav>
       </div>
     </header>
   );

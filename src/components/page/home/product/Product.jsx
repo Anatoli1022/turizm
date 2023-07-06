@@ -36,11 +36,11 @@ const Product = () => {
   console.log(data);
   return (
     <section className={cx('product')}>
-      <div className={cx('container')}>
+      <div className={cx('container', 'wrapper')}>
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={10}
+          spaceBetween={20}
           slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
@@ -50,14 +50,18 @@ const Product = () => {
           {data.slice(0, 6).map((product, index) => {
             return (
               <SwiperSlide key={index}>
-                <Link to={`products/${product.slug}`}>
+                <Link to={`products/${product.slug}`} className={cx('link')}>
                   <div className={cx('product-container')}>
                     <img className={cx('image')} alt="" src={product.image} />
-
+                    <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
-                      <h3 className={cx('title')}> {product.slug}</h3>
-                      <p className={cx('information')}>{product.lastName}</p>
-                      <p className={cx('price')}>{product.email}</p>
+                      <h3 className={cx('card-title')}> {product.to}</h3>
+                      <p className={cx('information')}>
+                        {product.description.length > 100
+                          ? `${product.description.slice(0, 100)}...`
+                          : `${product.description.slice(0, 100)}`}
+                      </p>
+                      <p className={cx('text')}>Dowiedz się więcej!</p>
                     </div>
                   </div>
                 </Link>

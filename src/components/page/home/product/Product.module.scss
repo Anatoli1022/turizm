@@ -1,6 +1,5 @@
 .product {
   padding-top: 200px;
-  padding-bottom: 200px;
 }
 
 .link {
@@ -55,6 +54,10 @@
   font-size: 20px;
   color: #ffff;
   margin-top: 10px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .text {

@@ -56,11 +56,7 @@ const Product = () => {
                     <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
                       <h3 className={cx('card-title')}> {product.to}</h3>
-                      <p className={cx('information')}>
-                        {product.description.length > 100
-                          ? `${product.description.slice(0, 100)}...`
-                          : `${product.description.slice(0, 100)}`}
-                      </p>
+                      <p className={cx('information')}>{product.description}</p>
                       <p className={cx('text')}>Dowiedz się więcej!</p>
                     </div>
                   </div>

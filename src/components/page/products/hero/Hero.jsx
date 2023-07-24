@@ -17,7 +17,6 @@ const formatDate = (dateString) => {
 };
 
 const Hero = () => {
-  const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [error, setError] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,7 +31,7 @@ const Hero = () => {
       try {
         const res = await fetch('http://turizm.atwebpages.com/index.php');
         const info = await res.json();
-        setData(info);
+
         setFilteredData(info);
       } catch (error) {
         setError(error.message);

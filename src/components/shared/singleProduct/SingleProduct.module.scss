@@ -1,7 +1,18 @@
-.product-wrapper {
+.container-single-product {
   padding-top: 150px;
+}
+.product-wrapper {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.image {
+  width: 100%;
+}
+
+.description {
+  
 }

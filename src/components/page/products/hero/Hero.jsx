@@ -25,13 +25,14 @@ const Hero = () => {
     price: 'asc',
   });
   const [active, setActive] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetch('http://turizm.atwebpages.com/index.php');
         const info = await res.json();
-
+        setData(info);
         setFilteredData(info);
       } catch (error) {
         setError(error.message);
@@ -77,7 +78,7 @@ const Hero = () => {
   return (
     <section className={cx('hero')}>
       <div className={cx('container')}>
-        <SearchBar data={filteredData} setFilteredData={setFilteredData} />
+        <SearchBar data={data} setFilteredData={setFilteredData} />
 
         <button
           className={cx('button', active === '' ? '' : 'price-active')}

@@ -2,6 +2,8 @@ import classNames from 'classnames/bind';
 import styles from './Hero.module.scss';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import Pagination from '../../../hooks/pagination/Pagination';
+import SearchBar from '../../../hooks/searchBar/SearchBar';
 // import background from './images/hero-background.jpg';
 
 const cx = classNames.bind(styles);
@@ -16,7 +18,14 @@ const formatDate = (dateString) => {
 
 const Hero = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [error, setError] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const [sortState, setSortState] = useState({
+    price: 'asc',
+  });
+  const [active, setActive] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -24,6 +33,7 @@ const Hero = () => {
         const res = await fetch('http://turizm.atwebpages.com/index.php');
         const info = await res.json();
         setData(info);
+        setFilteredData(info);
       } catch (error) {
         setError(error.message);
       }
@@ -32,12 +42,57 @@ const Hero = () => {
     fetchData();
   }, []);
 
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
+  const currentItems = filteredData.slice(firstItemIndex, lastItemIndex);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const applySort = (column) => {
+    setSortState((prevState) => ({
+      ...prevState,
+      [column]: prevState[column] === 'asc' ? 'desc' : 'asc',
+    }));
+
+    const sortedData = filteredData.slice().sort((a, b) => {
+      const sortOrder = sortState[column] === 'asc' ? 1 : -1;
+
+      if (column === 'price') {
+        return sortOrder * (a.price - b.price);
+      }
+
+      return 0;
+    });
+
+    setFilteredData(sortedData);
+  };
+
+  const buttonActive = () => {
+    if (active === '') {
+      setActive('price-active');
+    } else {
+      setActive('');
+    }
+  };
+
   return (
     <section className={cx('hero')}>
       <div className={cx('container')}>
+        <SearchBar data={filteredData} setFilteredData={setFilteredData} />
+
+        <button
+          className={cx('button', active === '' ? '' : 'price-active')}
+          onClick={() => {
+            applySort('price');
+            buttonActive();
+          }}
+        >
+          Filtruj według ceny
+        </button>
+
         {/* <img src={background} className={cx('background-image')} alt="" loading="lazy" aria-hidden="true" /> */}
         <ul className={cx('list')}>
-          {data.map((product, index) => {
+          {currentItems.map((product, index) => {
             const formattedDepartureDate = formatDate(product.departure_date);
             const formattedReturnDate = formatDate(product.return_date);
 
@@ -66,6 +121,12 @@ const Hero = () => {
             );
           })}
         </ul>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={filteredData.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </div>
     </section>
   );

@@ -15,6 +15,54 @@
 //   object-position: right bottom;
 // }
 
+
+
+.button {
+  cursor: pointer;
+  color: #3c2914;
+  font-weight: 500;
+  font-size: 16px;
+  background: none;
+  border: none;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: #3c2914;
+    width: 7px;
+    height: 1px;
+    transition: 0.3s;
+  }
+
+  &::before {
+    top: 9px;
+    right: -28px;
+    transform: rotate(40deg);
+  }
+
+  &::after {
+    top: 9px;
+    transform: rotate(-40deg);
+    right: -33px;
+  }
+}
+
+.button.price-active {
+  &::before {
+    transform: rotate(-40deg);
+  }
+
+  &::after {
+    transform: rotate(40deg);
+  }
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +70,7 @@
   list-style: none;
   justify-content: center;
   column-gap: 20px;
+  margin-top: 20px;
 }
 
 .item {

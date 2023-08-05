@@ -24,7 +24,11 @@ const Product = () => {
       try {
         const res = await fetch('http://turizm.atwebpages.com/index.php');
         const info = await res.json();
-        setData(info);
+        // Filter out duplicates based on the slug property
+        const uniqueData = info.filter((product, index, self) => {
+          return index === self.findIndex((p) => p.slug === product.slug);
+        });
+        setData(uniqueData);
       } catch (error) {
         setError(error.message);
       }

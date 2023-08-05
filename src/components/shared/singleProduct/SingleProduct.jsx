@@ -34,10 +34,16 @@ const SingleProduct = () => {
     fetchData();
   }, []);
   console.log(data);
+
   const params = useParams();
-  // const navigate = useNavigate();
 
   const products = data.find((product) => product.slug === params.slug);
+
+  const filteredImages = data.filter(
+    (product) => product.folder === products.folder
+  );
+
+  // const navigate = useNavigate();
 
   // useEffect(() => {
   //   if (!products) {
@@ -59,38 +65,14 @@ const SingleProduct = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
+        {filteredImages.map((product, index) => {
+          let img = require(`../../../images/${product.folder}/${product.name}`);
+          return (
+            <SwiperSlide key={index}>
+              <img src={img} alt="" className={cx('image')} loading="eager" />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -102,38 +84,14 @@ const SingleProduct = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={products?.image}
-            alt=""
-            className={cx('image')}
-            loading="eager"
-          />
-        </SwiperSlide>
+        {filteredImages.map((product, index) => {
+          let img = require(`../../../images/${product.folder}/${product.name}`);
+          return (
+            <SwiperSlide key={index}>
+              <img src={img} alt="" className={cx('image')} loading="eager" />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <div className={cx('product-wrapper')}>
         <p className={cx('description')}>{products?.description}</p>

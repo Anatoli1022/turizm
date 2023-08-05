@@ -32,8 +32,12 @@ const Hero = () => {
       try {
         const res = await fetch('http://turizm.atwebpages.com/index.php');
         const info = await res.json();
-        setData(info);
-        setFilteredData(info);
+         // Filter out duplicates based on the slug property
+         const uniqueData = info.filter((product, index, self) => {
+          return index === self.findIndex((p) => p.slug === product.slug);
+        });
+        setData(uniqueData);
+        setFilteredData(uniqueData);
       } catch (error) {
         setError(error.message);
       }
@@ -96,10 +100,12 @@ const Hero = () => {
             const formattedDepartureDate = formatDate(product.departure_date);
             const formattedReturnDate = formatDate(product.return_date);
 
+            let img = require(`../../../../images/${product.folder}/1.jpg`)
+
             return (
               <li key={index} className={cx('item')}>
                 <Link to={product.slug} className={cx('link')}>
-                  <img className={cx('image')} src={product.image} alt="" />
+                  <img className={cx('image')} src={img} alt="" />
                   <div className={cx('information-wrapper')}>
                     <h3 className={cx('place')}>
                       {product.from}-{product.to}

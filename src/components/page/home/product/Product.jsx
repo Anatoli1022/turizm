@@ -48,11 +48,12 @@ const Product = () => {
           onSlideChange={() => console.log('slide change')}
         >
           {data.slice(0, 6).map((product, index) => {
+            let img = require(`../../../../images/${product.folder}/1.jpg`);
             return (
               <SwiperSlide key={index}>
                 <Link to={`products/${product.slug}`} className={cx('link')}>
                   <div className={cx('product-container')}>
-                    <img className={cx('image')} alt="" src={product.image} />
+                    <img className={cx('image')} alt="" src={img} />
                     <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
                       <h3 className={cx('card-title')}> {product.to}</h3>

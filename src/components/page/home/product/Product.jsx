@@ -52,7 +52,7 @@ const Product = () => {
               <SwiperSlide key={index}>
                 <Link to={`products/${product.slug}`} className={cx('link')}>
                   <div className={cx('product-container')}>
-                    <img className={cx('image')} alt="" src={product.image} />
+                    <img className={cx('image')} alt="" src={product.link} />
                     <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
                       <h3 className={cx('card-title')}> {product.to}</h3>

@@ -22,7 +22,7 @@ const Product = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('http://turizm.atwebpages.com/index.php');
+        const res = await fetch('https://turizm123.000webhostapp.com/php/transmitted_data/data.php');
         const info = await res.json();
         setData(info);
       } catch (error) {
@@ -48,15 +48,48 @@ const Product = () => {
           onSlideChange={() => console.log('slide change')}
         >
           {data.slice(0, 6).map((product, index) => {
+            // const isProductAlreadyRendered = data.some(
+            //   (item, currentIndex) =>
+            //     item.slug === product.slug && currentIndex < index
+            // );
+            // if (!isProductAlreadyRendered) {
+            //   return (
+            //     <SwiperSlide key={index}>
+            //       <Link to={`products/${product.slug}`} className={cx('link')}>
+            //         <div className={cx('product-container')}>
+            //           <img
+            //             className={cx('image')}
+            //             alt=""
+            //             src={product.main_link}
+            //           />
+            //           <h2 className={cx('image-title')}>{product.to}</h2>
+            //           <div className={cx('information-wrapper')}>
+            //             <h3 className={cx('card-title')}> {product.to}</h3>
+            //             <p className={cx('information')}>
+            //               {product.description}
+            //             </p>
+            //             <p className={cx('text')}>Dowiedz się więcej!</p>
+            //           </div>
+            //         </div>
+            //       </Link>
+            //     </SwiperSlide>
+            //   );
+            // }
             return (
               <SwiperSlide key={index}>
                 <Link to={`products/${product.slug}`} className={cx('link')}>
                   <div className={cx('product-container')}>
-                    <img className={cx('image')} alt="" src={product.link} />
+                    <img
+                      className={cx('image')}
+                      alt=""
+                      src={product.main_link}
+                    />
                     <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
                       <h3 className={cx('card-title')}> {product.to}</h3>
-                      <p className={cx('information')}>{product.description}</p>
+                      <p className={cx('information')}>
+                        {product.description}
+                      </p>
                       <p className={cx('text')}>Dowiedz się więcej!</p>
                     </div>
                   </div>

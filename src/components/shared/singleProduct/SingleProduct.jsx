@@ -23,7 +23,7 @@ const SingleProduct = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('http://turizm.atwebpages.com/index.php');
+        const res = await fetch('https://turizm123.000webhostapp.com/php/transmitted_data/data_singleImage.php');
         const info = await res.json();
         setData(info);
       } catch (error) {
@@ -61,7 +61,7 @@ const SingleProduct = () => {
       >
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -69,7 +69,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -77,7 +77,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -85,7 +85,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -104,7 +104,7 @@ const SingleProduct = () => {
       >
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -112,7 +112,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -120,7 +120,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"
@@ -128,7 +128,7 @@ const SingleProduct = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={products?.image}
+            src={products?.link}
             alt=""
             className={cx('image')}
             loading="eager"

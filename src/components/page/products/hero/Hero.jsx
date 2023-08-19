@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Pagination from '../../../hooks/pagination/Pagination';
 import SearchBar from '../../../hooks/searchBar/SearchBar';
-// import background from './images/hero-background.jpg';
 
 const cx = classNames.bind(styles);
 
@@ -30,7 +29,7 @@ const Hero = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('http://turizm.atwebpages.com/index.php');
+        const res = await fetch('https://turizm123.000webhostapp.com/php/transmitted_data/data.php');
         const info = await res.json();
         setData(info);
         setFilteredData(info);
@@ -90,16 +89,52 @@ const Hero = () => {
           Filtruj według ceny
         </button>
 
-        {/* <img src={background} className={cx('background-image')} alt="" loading="lazy" aria-hidden="true" /> */}
         <ul className={cx('list')}>
           {currentItems.map((product, index) => {
             const formattedDepartureDate = formatDate(product.departure_date);
             const formattedReturnDate = formatDate(product.return_date);
 
+            // const isProductAlreadyRendered = currentItems.some(
+            //   (item, currentIndex) =>
+            //     item.slug === product.slug && currentIndex < index
+            // );
+
+            // if (!isProductAlreadyRendered) {
+            //   return (
+            //     <li key={index} className={cx('item')}>
+            //       <Link to={`./${product.slug}`} className={cx('link')}>
+            //         <img
+            //           className={cx('image')}
+            //           src={product.main_link}
+            //           alt=""
+            //         />
+            //         <div className={cx('information-wrapper')}>
+            //           <h3 className={cx('place')}>
+            //             {product.from}-{product.to}
+            //           </h3>
+            //           <div className={cx('information')}>
+            //             <span className={cx('date')}>
+            //               Wylot: {formattedDepartureDate}
+            //             </span>
+            //             <span className={cx('date')}>
+            //               Powrót: {formattedReturnDate}
+            //             </span>
+            //           </div>
+            //           <span className={cx('price')}>
+            //             Cena za osobę {product.price}
+            //           </span>
+            //         </div>
+            //       </Link>
+            //     </li>
+            //   );
+            // } else {
+            //   return null;
+            // }
+
             return (
               <li key={index} className={cx('item')}>
-                <Link to={product.slug} className={cx('link')}>
-                  <img className={cx('image')} src={product.image} alt="" />
+                <Link to={`./${product.slug}`} className={cx('link')}>
+                  <img className={cx('image')} src={product.main_link} alt="" />
                   <div className={cx('information-wrapper')}>
                     <h3 className={cx('place')}>
                       {product.from}-{product.to}
@@ -121,6 +156,7 @@ const Hero = () => {
             );
           })}
         </ul>
+
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={filteredData.length}

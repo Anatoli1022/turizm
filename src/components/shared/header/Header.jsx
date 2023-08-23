@@ -25,8 +25,8 @@ const Header = () => {
               </Link>
             </li>
             <li className={cx('item')}>
-              <Link to="/" className={cx('link')}>
-                contact
+              <Link to="/individualoffer" className={cx('link')}>
+                oferta spersonalizowana
               </Link>
             </li>
           </ul>

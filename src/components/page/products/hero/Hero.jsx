@@ -29,7 +29,9 @@ const Hero = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('https://turizm123.000webhostapp.com/php/transmitted_data/data.php');
+        const res = await fetch(
+          'https://turizm123.000webhostapp.com/php/transmitted_data/data.php'
+        );
         const info = await res.json();
         setData(info);
         setFilteredData(info);

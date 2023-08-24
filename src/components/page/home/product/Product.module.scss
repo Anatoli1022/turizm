@@ -1,3 +1,4 @@
+@import '../../../../styles/variables.scss';
 .product {
   padding-top: 200px;
 }
@@ -26,15 +27,15 @@
   z-index: 2;
   font-size: 30px;
   letter-spacing: 2px;
-  color: #ffff;
+  color: $color-white;
   left: 20px;
 }
 
 .information-wrapper {
-  transition: 0.3s;
+  transition: $transition-base;
   border-radius: 10px;
   opacity: 0;
-  background-color: black;
+  background-color: $color-black;
   padding: 20px;
   position: absolute;
   top: 0;
@@ -46,14 +47,14 @@
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #ffff;
+  color: $color-white;
 }
 
 .information {
   margin-top: 6px;
   line-height: 24px;
   font-size: 20px;
-  color: #ffff;
+  color: $color-white;
   margin-top: 10px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -63,7 +64,7 @@
 
 .text {
   font-size: 20px;
-  color: #ffff;
+  color: $color-white;
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -83,7 +84,7 @@
     .swiper-pagination-bullet {
       width: 14px;
       height: 14px;
-      background-color: #3c2914;
+      background-color: $color-primary;
     }
 
     .swiper-button-next {

@@ -1,14 +1,13 @@
+@import '../../../../styles/variables.scss';
+
 .hero {
   padding-top: 100px;
   position: relative;
 }
 
-
-
-
 .button {
   cursor: pointer;
-  color: #3c2914;
+  color: $color-primary;
   font-weight: 500;
   font-size: 16px;
   background: none;
@@ -23,10 +22,10 @@
   &::before {
     content: '';
     position: absolute;
-    background-color: #3c2914;
+    background-color: $color-primary;
     width: 7px;
     height: 1px;
-    transition: 0.3s;
+    transition: $transition-base;
   }
 
   &::before {
@@ -66,7 +65,7 @@
   box-shadow: 0px 14px 24px 0px rgba(0, 0, 51, 0.07);
   border-radius: 20px;
   padding-bottom: 20px;
-  background-color: #ffff;
+  background-color: $color-white;
   border: 1px solid #ccccd6;
 }
 .information-wrapper {
@@ -77,7 +76,7 @@
 
 .link {
   text-decoration: none;
-  color: #3c2914;
+  color: $color-primary;
 }
 
 .image {

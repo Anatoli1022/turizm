@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .header {
   position: absolute;
   background-color: #fff;
@@ -31,9 +33,9 @@
   font-size: 18px;
   text-decoration: none;
   font-weight: 600;
-  color: #3c2914;
+  color: $color-primary;
   text-transform: capitalize;
-  transition: 0.3s;
+  transition: $transition-base;
   &:hover {
     color: #b17d42;
   }

@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .footer {
   margin-top: 80px;
   padding-bottom: 50px;
@@ -10,7 +12,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 100px;
-  border-top: 1px solid #3c2914;
+  border-top: 1px solid $color-primary;
   padding-top: 40px;
 }
 
@@ -23,21 +25,21 @@
 }
 
 .title {
-  color: #3c2914;
+  color: $color-primary;
   font-size: 25px;
   text-align: center;
 }
 
 .link {
-  color: #3c2914;
+  color: $color-primary;
   text-align: center;
   font-size: 18px;
-  transition: 0.3s;
+  transition: $transition-base;
   padding-bottom: 3px;
   text-decoration: none;
-  border-bottom: 1px solid #ffff;
+  border-bottom: 1px solid $color-white;
   &:hover {
-    border-bottom: 1px solid #3c2914;
+    border-bottom: 1px solid $color-primary;
   }
 }
 

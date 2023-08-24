@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .wrapper-search {
   max-width: 630px;
   position: relative;
@@ -6,22 +8,22 @@
 }
 
 .search {
-  color: #3c2914;
+  color: $color-primary;
   padding-top: 18px;
   padding-bottom: 15px;
   padding-left: 26px;
   font-size: 16px;
   padding-right: 45px;
-  border: 1px solid #3c2914;
+  border: 1px solid$color-primary;
   border-radius: 6px;
   width: 100%;
-  transition: 0.3s;
+  transition: $transition-base;
 
   &:focus-visible {
     outline: none;
   }
   &::placeholder {
-    color: #3c2914;
+    color: $color-primary;
     font-size: 14px;
     font-weight: 400;
   }

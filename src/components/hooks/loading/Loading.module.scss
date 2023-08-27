@@ -1,0 +1,58 @@
+// @import '../../../styles/variables.scss';
+
+.loading {
+  padding-top: 150px;
+}
+
+.loading-svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  animation: 2.5s linear infinite svg-animation;
+  color: #009999;
+  width: 300px;
+  height: 300px;
+}
+
+circle {
+  color: #009999;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 8;
+  box-sizing: border-box;
+  animation: 2s ease-in-out infinite both circle-animation;
+  stroke-linecap: round;
+  stroke-dasharray: 290;
+  stroke-dashoffset: 280;
+  transform-origin: 50% 50%;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes circle-animation {
+  0%,
+  25% {
+    stroke-dashoffset: 280;
+    transform: rotate(0);
+  }
+
+  50%,
+  75% {
+    stroke-dashoffset: 25;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(360deg);
+  }
+}

@@ -1,3 +1,4 @@
+import Loading from '../../hooks/loading/Loading';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames/bind';
@@ -12,6 +13,7 @@ import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 
 import styles from './SingleProduct.module.scss';
+
 
 const cx = classNames.bind(styles);
 
@@ -52,91 +54,90 @@ const SingleProduct = () => {
   // }, [products, navigate]);
 
   if (isLoading) {
-    return <div className={cx('loading')}>...Loading</div>;
+    return <Loading/>
   }
 
   return (
-    <div className={cx('container', 'container-single-product')}>
-      <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }}
-        loop={true}
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
-      >
-        {products.slice(0, 1).map((product) => {
-          return (
-            <SwiperSlide>
-              <img
-                src={product.main_link}
-                alt=""
-                className={cx('image')}
-                loading="eager"
-              />
-            </SwiperSlide>
-          );
-        })}
-        {products.map((product) => {
-          return (
-            <SwiperSlide>
-              <img
-                src={product.link}
-                alt=""
-                className={cx('image')}
-                loading="eager"
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        {products.slice(0, 1).map((product) => {
-          return (
-            <SwiperSlide>
-              <img
-                src={product.main_link}
-                alt=""
-                className={cx('image')}
-                loading="eager"
-              />
-            </SwiperSlide>
-          );
-        })}
-        {products.map((product) => {
-          return (
-            <SwiperSlide>
-              <img
-                src={product.link}
-                alt=""
-                className={cx('image')}
-                loading="eager"
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+    <div className={cx('single-product')}>
+      <div className={cx('container', 'wrapper')}>
+        <Swiper
+          style={{
+            '--swiper-navigation-color': '#fff',
+            '--swiper-pagination-color': '#fff',
+          }}
+          loop={true}
+          spaceBetween={10}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
+        >
+          {products.slice(0, 1).map((product) => {
+            return (
+              <SwiperSlide>
+                <img
+                  src={product.main_link}
+                  alt=""
+                  className={cx('image')}
+                  loading="eager"
+                />
+              </SwiperSlide>
+            );
+          })}
+          {products.map((product) => {
+            return (
+              <SwiperSlide>
+                <img
+                  src={product.link}
+                  alt=""
+                  className={cx('image')}
+                  loading="eager"
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop={true}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper"
+        >
+          {products.slice(0, 1).map((product) => {
+            return (
+              <SwiperSlide>
+                <img
+                  src={product.main_link}
+                  alt=""
+                  className={cx('image')}
+                  loading="eager"
+                />
+              </SwiperSlide>
+            );
+          })}
+          {products.map((product) => {
+            return (
+              <SwiperSlide>
+                <img
+                  src={product.link}
+                  alt=""
+                  className={cx('image')}
+                  loading="eager"
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
 
-      <div className={cx('product-wrapper')}>
-        <p className={cx('description')}>{products.description}</p>
-        <h2>{products.slug}</h2>
-
-        <Link to=".." relative="path">
-          All Products
-        </Link>
+        <div className={cx('product-wrapper')}>
+          <Link to=".." relative="path" className={cx('link')}>
+            All Products
+          </Link>
+        </div>
       </div>
     </div>
   );

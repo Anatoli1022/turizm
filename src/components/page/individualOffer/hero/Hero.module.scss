@@ -34,6 +34,32 @@
 .wrapper-input {
   display: flex;
   column-gap: 30px;
+
+  &:nth-of-type(2) {
+    justify-content: space-between;
+  }
+}
+
+.wrapper-date {
+  display: flex;
+  column-gap: 40px;
+}
+
+.text {
+  color: $color-black;
+  font-weight: 600;
+  font-size: 16px;
+  color: #3c2914;
+}
+
+.label-date {
+  display: flex;
+  column-gap: 10px;
+}
+
+.span-date {
+  font-weight: 600;
+  color: #3c2914;
 }
 
 .form-input {
@@ -41,7 +67,6 @@
   border-bottom: 1px solid $color-primary;
   display: block;
   padding-right: 80px;
-  color: #3c2914;
   font-size: 16px;
 
   &:focus-visible {
@@ -49,11 +74,9 @@
   }
 }
 
-// .input-name {
-// }
-
-// .input-email {
-// }
+.form-input-date {
+  padding-right: 0;
+}
 
 .message {
   border: none;
@@ -69,13 +92,13 @@
 
 .button {
   border: 1px solid $color-primary;
-  background-color: #6b4c27;
+  background-color: $color-primary;
   padding: 10px;
   color: $color-white;
   cursor: pointer;
   &:hover {
     transition: $transition-base;
     background: none;
-    color: $color-primary ;
+    color: $color-primary;
   }
 }

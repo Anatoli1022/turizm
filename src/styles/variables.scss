@@ -1,8 +1,9 @@
 // Colors
-$color-primary: #6b4c27;
-// $color-primary: #3c2914;
+$color-bronze: #6b4c27;
+$color-primary: #3c2914;
 $color-white: #ffff;
 $color-black: #222020;
+$color-red: #e71111;
 
 $color-accent-secondary: '';
 
@@ -39,7 +40,31 @@ $line-height-xs: '';
 $transition-base: 0.3s;
 
 // Breakpoints
-$breakpoint-lg-down: 1280px - 0.02px;
-$breakpoint-md-down: 1024px - 0.02px;
-$breakpoint-sm-down: 768px - 0.02px;
-$breakpoint-xs-down: 414px - 0.02px;
+$breakpoint-lg-down: 1279px;
+$breakpoint-md-down: 1023px;
+$breakpoint-sm-down: 767px;
+$breakpoint-xs-down: 413px;
+
+@mixin lg-down {
+  @media (max-width: #{$breakpoint-lg-down}) {
+    @content;
+  }
+}
+
+@mixin md-down {
+  @media (max-width: #{$breakpoint-md-down}) {
+    @content;
+  }
+}
+
+@mixin sm-down {
+  @media (max-width: #{$breakpoint-md-down}) {
+    @content;
+  }
+}
+
+@mixin xs-down {
+  @media (max-width: #{$breakpoint-md-down}) {
+    @content;
+  }
+}

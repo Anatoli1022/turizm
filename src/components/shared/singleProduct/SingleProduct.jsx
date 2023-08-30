@@ -1,20 +1,18 @@
-import Loading from '../../hooks/loading/Loading';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import React, { useEffect, useState, useRef } from 'react';
-import classNames from 'classnames/bind';
+import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-
 import { FreeMode, Navigation, Thumbs } from 'swiper';
+
+import Loading from '../../hooks/loading/Loading';
 
 import styles from './SingleProduct.module.scss';
 
-
+import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const SingleProduct = () => {
@@ -43,18 +41,25 @@ const SingleProduct = () => {
   const params = useParams();
 
   const products = data.filter((data) => data.slug == params.slug);
-  console.log(products);
-  console.log(data);
 
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!products) {
-  //     navigate('..', { relative: 'path' });
-  //   }
-  // }, [products, navigate]);
+  const singleInformation = products[0];
+
+  const formatDate = (dateString) => {
+    if (!dateString) {
+      return '';
+    }
+    const dateParts = dateString.split('-');
+    const day = dateParts[2];
+    const month = dateParts[1];
+    const year = dateParts[0];
+    return `${day}.${month}.${year}`;
+  };
+
+  const formattedDepartureDate = formatDate(singleInformation?.departure_date);
+  const formattedReturnDate = formatDate(singleInformation?.return_date);
 
   if (isLoading) {
-    return <Loading/>
+    return <Loading />;
   }
 
   return (
@@ -72,21 +77,18 @@ const SingleProduct = () => {
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2"
         >
-          {products.slice(0, 1).map((product) => {
+          <SwiperSlide>
+            <img
+              src={singleInformation.main_link}
+              alt=""
+              className={cx('image')}
+              loading="eager"
+            />
+          </SwiperSlide>
+
+          {products.map((product, i) => {
             return (
-              <SwiperSlide>
-                <img
-                  src={product.main_link}
-                  alt=""
-                  className={cx('image')}
-                  loading="eager"
-                />
-              </SwiperSlide>
-            );
-          })}
-          {products.map((product) => {
-            return (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <img
                   src={product.link}
                   alt=""
@@ -107,21 +109,18 @@ const SingleProduct = () => {
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper"
         >
-          {products.slice(0, 1).map((product) => {
+          <SwiperSlide>
+            <img
+              src={singleInformation.main_link}
+              alt=""
+              className={cx('image')}
+              loading="eager"
+            />
+          </SwiperSlide>
+
+          {products.map((product, i) => {
             return (
-              <SwiperSlide>
-                <img
-                  src={product.main_link}
-                  alt=""
-                  className={cx('image')}
-                  loading="eager"
-                />
-              </SwiperSlide>
-            );
-          })}
-          {products.map((product) => {
-            return (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <img
                   src={product.link}
                   alt=""
@@ -134,10 +133,35 @@ const SingleProduct = () => {
         </Swiper>
 
         <div className={cx('product-wrapper')}>
-          <Link to=".." relative="path" className={cx('link')}>
-            All Products
-          </Link>
+          <div>
+            <h3 className={cx('title-place')}>
+              {`${singleInformation.from} - ${singleInformation.to}`}
+            </h3>
+            <div className={cx('container-date')}>
+              <span className={cx('date')}>
+                <span>Wylot:</span>
+                <span className={cx('date-number')}>
+                  {formattedDepartureDate}
+                </span>
+              </span>
+              <span className={cx('date')}>
+                <span> Powrót:</span>
+                <span className={cx('date-number')}>{formattedReturnDate}</span>
+              </span>
+            </div>
+            <span className={cx('price')}>
+              <span> Cena za osobę </span>{' '}
+              <span className={cx('price-number')}>
+                {singleInformation.price}zł
+              </span>
+            </span>
+          </div>
+          <button className={cx('button-buy')}>Kupić</button>
+          <p className={cx('description')}>{singleInformation.description}</p>
         </div>
+        <Link to=".." relative="path" className={cx('link')}>
+          All Products
+        </Link>
       </div>
     </div>
   );

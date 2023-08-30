@@ -3,17 +3,6 @@
 .single-product {
   padding-top: 150px;
 }
-.product-wrapper {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loading {
-  padding-top: 300px;
-}
 
 .wrapper {
   :global {
@@ -22,6 +11,7 @@
         max-width: 1040px;
 
         .swiper-wrapper {
+          margin-top: 20px;
           // overflow: hidden;
           max-height: 200px;
           justify-content: start;
@@ -43,7 +33,7 @@
       opacity: 0;
     }
     .swiper-wrapper {
-      max-height: 740px;
+      max-height: 700px;
       align-items: center;
     }
 
@@ -70,17 +60,90 @@
   }
 }
 
+.product-wrapper {
+  max-width: 1000px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-place {
+  color: $color-primary;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.container-date {
+  margin-top: 15px;
+}
+
+.date {
+  color: $color-primary;
+  font-size: 18px;
+  margin-left: 40px;
+  &:first-child {
+    margin-left: 0px;
+  }
+}
+
+.date-number {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.price {
+  display: block;
+  color: $color-primary;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.price-number {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.button-buy {
+  font-size: 20px;
+  margin-top: 30px;
+  color: $color-white;
+  border-radius: 6px;
+  padding: 15px 150px;
+  background-color: $color-bronze;
+  transition: $transition-base;
+  border: 1px solid $color-bronze;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+  &:hover {
+    background: none;
+    color: $color-bronze;
+  }
+}
+
+.description {
+  color: $color-primary;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
 .link {
+  text-align: center;
+  max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
   color: $color-white;
   border-radius: 6px;
   padding: 15px 20px;
-  background-color: #6b4c27;
+  background-color: $color-bronze;
   transition: $transition-base;
-  border: 1px solid #6b4c27;
+  border: 1px solid $color-bronze;
   font-weight: 500;
-
+  letter-spacing: 2px;
   &:hover {
     background: none;
-    color: #6b4c27;
+    color: $color-bronze;
   }
 }

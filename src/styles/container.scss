@@ -1,5 +1,15 @@
+@import './variables.scss';
 .container {
   max-width: 1310px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.container-large {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1460px;
+  @include lg-down {
+    max-width: 1040px;
+  }
 }

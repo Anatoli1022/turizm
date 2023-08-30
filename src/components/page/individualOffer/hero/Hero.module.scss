@@ -20,7 +20,7 @@
 }
 
 .title-span {
-  color: #6b4c27;
+  color: $color-bronze;
   // color: #b17d42;
 }
 
@@ -80,7 +80,7 @@
 
 .message {
   border: none;
-  color: #3c2914;
+  color: color-primary;
   font-size: 16px;
   height: 200px !important;
   // width: 300px !important;
@@ -91,8 +91,9 @@
 }
 
 .button {
-  border: 1px solid $color-primary;
-  background-color: $color-primary;
+  border: 1px solid $color-bronze;
+  background-color: $color-bronze;
+  border-radius: 6px;
   padding: 10px;
   color: $color-white;
   cursor: pointer;

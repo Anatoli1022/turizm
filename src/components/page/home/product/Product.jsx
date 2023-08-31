@@ -22,7 +22,9 @@ const Product = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('https://turizm123.000webhostapp.com/php/transmitted_data/data.php');
+        const res = await fetch(
+          'https://turizm123.000webhostapp.com/php/transmitted_data/data.php'
+        );
         const info = await res.json();
         setData(info);
       } catch (error) {
@@ -37,6 +39,7 @@ const Product = () => {
   return (
     <section className={cx('product')}>
       <div className={cx('container', 'wrapper')}>
+        <h2 className={cx('title')}>Ostatnio dodane oferty</h2>
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, A11y]}
@@ -48,7 +51,6 @@ const Product = () => {
           onSlideChange={() => console.log('slide change')}
         >
           {data.slice(0, 6).map((product, index) => {
-         
             return (
               <SwiperSlide key={index}>
                 <Link to={`products/${product.slug}`} className={cx('link')}>
@@ -61,9 +63,7 @@ const Product = () => {
                     <h2 className={cx('image-title')}>{product.to}</h2>
                     <div className={cx('information-wrapper')}>
                       <h3 className={cx('card-title')}> {product.to}</h3>
-                      <p className={cx('information')}>
-                        {product.description}
-                      </p>
+                      <p className={cx('information')}>{product.description}</p>
                       <p className={cx('text')}>Dowiedz się więcej!</p>
                     </div>
                   </div>
@@ -72,6 +72,27 @@ const Product = () => {
             );
           })}
         </Swiper>
+        <p className={cx('text-information')}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsam
+          fuga soluta cupiditate. Deserunt cum magnam, mollitia consectetur
+          autem fuga tenetur excepturi molestiae accusantium sequi laboriosam
+          aut. Incidunt, exercitationem distinctio! Lorem ipsum dolor sit amet
+          consectetur, adipisicing elit. Optio ipsam fuga soluta cupiditate.
+          Deserunt cum magnam, mollitia consectetur autem fuga tenetur excepturi
+          molestiae accusantium sequi laboriosam aut. Incidunt, exercitationem
+          distinctio! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Optio ipsam fuga soluta cupiditate. Deserunt cum magnam, mollitia
+          consectetur autem fuga tenetur excepturi molestiae accusantium sequi
+          laboriosam aut. Incidunt, exercitationem distinctio! Lorem ipsum dolor
+          sit amet consectetur, adipisicing elit. Optio ipsam fuga soluta
+          cupiditate. Deserunt cum magnam, mollitia consectetur autem fuga
+          tenetur excepturi molestiae accusantium sequi laboriosam aut.
+          Incidunt, exercitationem distinctio! Lorem ipsum dolor sit amet
+          consectetur, adipisicing elit. Optio ipsam fuga soluta cupiditate.
+          Deserunt cum magnam, mollitia consectetur autem fuga tenetur excepturi
+          molestiae accusantium sequi laboriosam aut. Incidunt, exercitationem
+          distinctio!
+        </p>
       </div>
     </section>
   );

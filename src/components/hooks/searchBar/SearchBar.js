@@ -11,7 +11,8 @@ const SearchBar = ({ data, setFilteredData }) => {
     const filteredData = data.filter(
       (item) =>
         //where the search will be performed
-        item.description.toLowerCase().includes(keyword) ||
+        item.to.toLowerCase().includes(keyword) ||
+        item.departure_date.toLowerCase().includes(keyword) ||
         item.from.toLowerCase().includes(keyword)
     );
     setFilteredData(filteredData);

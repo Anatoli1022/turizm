@@ -1,0 +1,86 @@
+@import '../../../styles/variables.scss';
+.item {
+  padding: 20px 50px 20px 40px;
+  border-top: 1px solid $color-bronze;
+
+  &:last-child {
+    border-bottom: 1px solid $color-bronze;
+  }
+
+  @include sm-down {
+    padding: 20px 50px 20px 15px;
+  }
+}
+
+.active {
+  .item-title::before {
+    transform: rotate(0deg);
+  }
+
+  .item-title::after {
+    background-color: $color-bronze;
+  }
+
+  .item-title {
+    color: $color-bronze;
+  }
+
+  .item-text {
+    display: block;
+    margin-top: 25px;
+
+    &:first-of-type {
+      margin-top: 15px;
+    }
+  }
+}
+
+.item-title {
+  color: $color-primary;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    position: absolute;
+    right: -18px;
+    bottom: 50%;
+    width: 18px;
+    height: 2px;
+    content: '';
+    background-color: $color-primary;
+    transition: all 0.3s ease 0s;
+
+    @include sm-down {
+      right: -30px;
+    }
+  }
+
+  &::before {
+    transform: rotate(90deg);
+  }
+
+  &::after {
+    transform: rotate(0deg);
+  }
+
+  @include sm-down {
+    font-size: 16px;
+  }
+}
+
+.item-text {
+  color: $color-primary;
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 0;
+  white-space: pre-wrap;
+
+  @include sm-down {
+    font-size: 14px;
+  }
+}

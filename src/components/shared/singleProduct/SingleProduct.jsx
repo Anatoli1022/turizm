@@ -190,10 +190,11 @@ const SingleProduct = () => {
                 </div>
 
                 <p className={cx('payment-text')}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                  repellat, id alias dolores delectus reiciendis voluptates
-                  illum harum illo, inventore eveniet voluptatem recusandae
-                  laboriosam, dolorem maxime! In odio voluptate cupiditate.
+                  Opłata za usługę w znalezieniu najlepszej oferty w
+                  korzystniejszej cenie. Zapoluj na Wakacje nie pobiera żadnych
+                  opłat za bilety lotnicze, rezerwacje hoteli i transferu. Po
+                  dokonaniu płatności dostaną Państwo linki do samodzielnego
+                  zakupu biletów lotniczych, hotelu oraz transferu.
                 </p>
               </div>
             </div>

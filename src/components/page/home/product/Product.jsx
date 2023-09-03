@@ -72,27 +72,7 @@ const Product = () => {
             );
           })}
         </Swiper>
-        <p className={cx('text-information')}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio ipsam
-          fuga soluta cupiditate. Deserunt cum magnam, mollitia consectetur
-          autem fuga tenetur excepturi molestiae accusantium sequi laboriosam
-          aut. Incidunt, exercitationem distinctio! Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Optio ipsam fuga soluta cupiditate.
-          Deserunt cum magnam, mollitia consectetur autem fuga tenetur excepturi
-          molestiae accusantium sequi laboriosam aut. Incidunt, exercitationem
-          distinctio! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          Optio ipsam fuga soluta cupiditate. Deserunt cum magnam, mollitia
-          consectetur autem fuga tenetur excepturi molestiae accusantium sequi
-          laboriosam aut. Incidunt, exercitationem distinctio! Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Optio ipsam fuga soluta
-          cupiditate. Deserunt cum magnam, mollitia consectetur autem fuga
-          tenetur excepturi molestiae accusantium sequi laboriosam aut.
-          Incidunt, exercitationem distinctio! Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Optio ipsam fuga soluta cupiditate.
-          Deserunt cum magnam, mollitia consectetur autem fuga tenetur excepturi
-          molestiae accusantium sequi laboriosam aut. Incidunt, exercitationem
-          distinctio!
-        </p>
+      
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ const VerificationForm = () => {
     e.preventDefault(); // Предотвращаем отправку формы
 
     try {
-      const response = await axios.post('/send-email', {
+      const response = await axios.post('http://localhost:3001/send-email', {
         to: email, // Поле 'to' - адрес получателя
         html: html, // Поле 'html' - HTML-контент письма
       });

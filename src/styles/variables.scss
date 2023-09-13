@@ -1,8 +1,10 @@
 // Colors
 $color-bronze: #6b4c27;
-$color-primary: #3c2914;
+$color-primary: var(--color-primary);
+// #3c2914
 $color-white: #ffff;
-$color-black: #222020;
+$color-black: var(--color-black);
+$color-background:var(--color-background);
 $color-red: #e71111;
 
 $color-accent-secondary: '';

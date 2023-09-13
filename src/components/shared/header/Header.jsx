@@ -2,10 +2,19 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import logo from '../../../images/logo.svg';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../hooks/useTheme/useTheme';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+  function handleClick() {
+    if (theme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  }
   return (
     <header className={cx('header')}>
       <div className={cx('container')}>
@@ -28,6 +37,9 @@ const Header = () => {
               <Link to="/individualoffer" className={cx('link')}>
                 oferta spersonalizowana
               </Link>
+            </li>
+            <li>
+              <button onClick={handleClick}>afafaf</button>
             </li>
           </ul>
         </nav>

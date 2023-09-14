@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .navigation {
   margin-top: 24px;
   padding-bottom: 12px;
@@ -15,11 +17,9 @@
   border: none;
   background: none;
   font-size: 18px;
-  font-style: italic;
   font-weight: 700;
-  color: #474955;
+  color: $color-text;
   line-height: 24px;
-
 }
 
 .active > .button {

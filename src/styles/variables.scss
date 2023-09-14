@@ -1,21 +1,21 @@
 // Colors
 $color-bronze: #6b4c27;
-$color-primary: var(--color-primary);
-// #3c2914
+$color-text: var(--color-text);
+$color-brown: #3c2914;
 $color-white: #ffff;
-$color-black: var(--color-black);
-$color-background:var(--color-background);
+$color-black-white: var(--color-black-white);
+$color-background: var(--color-background);
 $color-red: #e71111;
-
+$color-hover: var(--color-hover);
 $color-accent-secondary: '';
 
-$color-primary-hover: '';
+$color-text-hover: '';
 $color-accent-primary-hover: '';
 $color-accent-secondary-hover: '';
 
 // Fonts
-$font-family-primary: 'League Spartan';
-$font-family-secondary: sans-serif;
+$font-family-primary: 'Lato';
+$font-family-secondary: 'Kaushan Script';
 
 $font-size-base: '';
 $line-height-base: '';

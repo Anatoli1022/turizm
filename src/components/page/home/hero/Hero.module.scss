@@ -20,10 +20,10 @@
 }
 
 .title {
-  font-family: 'Kaushan Script';
+  font-family: $font-family-secondary;
   text-align: center;
   font-size: 30px;
-  color: $color-primary;
+  color: $color-brown;
   text-transform: uppercase;
 }
 
@@ -34,6 +34,6 @@
 
 .text {
   text-align: center;
-  color: $color-primary;
+  color: $color-brown;
   text-transform: uppercase;
 }

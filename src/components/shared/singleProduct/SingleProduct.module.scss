@@ -63,11 +63,11 @@
     }
 
     .swiper-button-prev {
-      color: $color-primary;
+      color: $color-text;
     }
 
     .swiper-button-next {
-      color: $color-primary;
+      color: $color-text;
     }
   }
 }
@@ -80,7 +80,7 @@
 }
 
 .title-place {
-  color: $color-primary;
+  color: $color-text;
   font-size: 26px;
   letter-spacing: 2px;
 }
@@ -90,7 +90,7 @@
 }
 
 .date {
-  color: $color-primary;
+  color: $color-text;
   font-size: 18px;
   margin-left: 40px;
   &:first-child {
@@ -105,7 +105,7 @@
 
 .price {
   display: block;
-  color: $color-primary;
+  color: $color-text;
   font-size: 18px;
   margin-top: 15px;
 }
@@ -152,7 +152,7 @@
   max-width: 300px;
   display: inline-block;
   margin-left: 30px;
-  color: $color-primary;
+  color: $color-text;
 }
 
 .payment-star {
@@ -162,12 +162,12 @@
 
 .payment-text {
   font-size: 16px;
-  color: $color-primary;
+  color: $color-text;
   margin-top: 20px;
 }
 
 .description {
-  color: $color-primary;
+  color: $color-text;
   margin-top: 50px;
   font-size: 20px;
 }

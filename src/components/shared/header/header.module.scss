@@ -20,6 +20,10 @@
   max-width: 100px;
 }
 
+html[data-theme='dark'] .logo {
+  filter: invert(1);
+}
+
 .list {
   display: flex;
   list-style: none;
@@ -34,7 +38,7 @@
   font-size: 18px;
   text-decoration: none;
   font-weight: 600;
-  color: $color-primary;
+  color: $color-text;
   text-transform: capitalize;
   transition: $transition-base;
   &:hover {

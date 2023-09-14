@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const Hero = () => {
   const [name, setName] = useState(''),
-    [email, setEmail] = useState(''),
+    [email, setMail] = useState(''),
     [when_od, setWhen_od] = useState(''),
     [when_do, setWhen_do] = useState(''),
     [direction, setDirection] = useState(''),
@@ -44,7 +44,7 @@ const Hero = () => {
     }
 
     setName('');
-    setEmail('');
+    setMail('');
     setWhen_od('');
     setWhen_do('');
     setDirection('');
@@ -69,16 +69,16 @@ const Hero = () => {
               <input
                 className={cx('form-input')}
                 type="text"
-                placeholder="Name"
+                placeholder="Imię"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 className={cx('form-input')}
                 type="email"
-                placeholder="Email"
+                placeholder="Mail"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setMail(e.target.value)}
                 required
               />
             </div>

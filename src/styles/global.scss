@@ -7,10 +7,9 @@
 }
 
 body {
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Lato', sans-serif;
+  font-family: $font-family-primary, sans-serif;
   // line-height: $line-height-base;
-  // color: $color-primary;
+  // color: $color-text;
   background-color: $color-background;
   margin: 0;
   letter-spacing: 1px;
@@ -54,13 +53,18 @@ ul {
 }
 
 html[data-theme='dark'] {
-  --color-primary: #ffff;
-  --color-black: #ffff;
+  --color-text: #ffff;
   --color-background: #0a0c0f;
+  --color-hover: #ffff;
+  --color-black-white: #ffff;
+  img {
+    opacity: 0.8;
+  }
 }
 
 html[data-theme='light'] {
-  --color-primary: #3c2914;
-  --color-black: #ffff;
+  --color-text: #3c2914;
+  --color-hover: #3c2914;
+  --color-black-white: #0a0c0f;
   --color-background: #ffff;
 }

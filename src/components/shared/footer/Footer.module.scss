@@ -5,7 +5,7 @@
   padding-bottom: 50px;
   padding-left: 10px;
   padding-right: 10px;
-  border-top: 1px solid $color-primary;
+  border-top: 1px solid $color-text;
   padding-top: 40px;
 }
 
@@ -25,13 +25,13 @@
 }
 
 .title {
-  color: $color-primary;
+  color: $color-text;
   font-size: 25px;
   text-align: center;
 }
 
 .link {
-  color: $color-primary;
+  color: $color-text;
   text-align: center;
   font-size: 18px;
   transition: $transition-base;
@@ -39,7 +39,7 @@
   text-decoration: none;
   border-bottom: 1px solid $color-white;
   &:hover {
-    border-bottom: 1px solid $color-primary;
+    border-bottom: 1px solid $color-hover;
   }
 }
 

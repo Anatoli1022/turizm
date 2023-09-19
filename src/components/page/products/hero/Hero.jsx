@@ -121,7 +121,7 @@ const Hero = () => {
                       </span>
                     </div>
                     <span className={cx('price')}>
-                      Cena za osobę {product.price}
+                      Cena za osobę {product.price} zł
                     </span>
                   </div>
                 </Link>

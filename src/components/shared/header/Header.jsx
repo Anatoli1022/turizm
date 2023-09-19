@@ -3,6 +3,7 @@ import styles from './Header.module.scss';
 import logo from '../../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme/useTheme';
+import ButtonTheme from '../../hooks/buttonTheme';
 
 const cx = classNames.bind(styles);
 
@@ -17,29 +18,29 @@ const Header = () => {
   }
   return (
     <header className={cx('header')}>
-      <div className={cx('container')}>
+      <div className={cx('container-large')}>
         <nav className={cx('navigation')}>
           <Link to="/">
             <img src={logo} loading="eager" alt="" className={cx('logo')} />
           </Link>
           <ul className={cx('list')}>
-            <li className={cx('item')}>
+            <li>
               <Link to="/" className={cx('link')}>
                 home
               </Link>
             </li>
-            <li className={cx('item')}>
+            <li>
               <Link to="/products" className={cx('link')}>
                 product
               </Link>
             </li>
-            <li className={cx('item')}>
+            <li>
               <Link to="/individualoffer" className={cx('link')}>
                 oferta spersonalizowana
               </Link>
             </li>
             <li>
-              <button onClick={handleClick}>afafaf</button>
+              <ButtonTheme onClick={handleClick} />
             </li>
           </ul>
         </nav>

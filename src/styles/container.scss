@@ -3,12 +3,19 @@
   max-width: 1310px;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  @include lg-down {
+    max-width: 1040px;
+  }
 }
 
 .container-large {
   margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-right: auto;
-  max-width: 1460px;
+  max-width: 1480px;
   @include lg-down {
     max-width: 1040px;
   }

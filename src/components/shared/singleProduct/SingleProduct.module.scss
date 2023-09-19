@@ -2,16 +2,19 @@
 
 .single-product {
   padding-top: 150px;
+  @include lg-down {
+    padding-top: 100px;
+  }
 }
 
 .single-product-container {
   display: flex;
   justify-content: center;
   column-gap: 50px;
+  flex-wrap: wrap;
+  row-gap: 40px;
 
   @include lg-down {
-    flex-direction: column;
-    justify-content: start;
   }
 }
 
@@ -19,14 +22,25 @@
   :global {
     .swiper {
       max-width: 1040px;
+      @include lg-down {
+        max-width: 767px;
+        max-height: 600px;
+      }
       &:nth-of-type(2) {
         max-width: 1040px;
 
+        @include lg-down {
+          max-width: 767px;
+        }
         .swiper-wrapper {
           margin-top: 20px;
           // overflow: hidden;
+          column-gap: 10px;
           max-height: 200px;
           justify-content: start;
+          @include lg-down {
+            column-gap: 20px;
+          }
           .swiper-slide {
             display: flex;
             justify-content: center;
@@ -55,10 +69,13 @@
 
       .image {
         border-radius: 16px;
-        // max-width: 1040px;
+
         width: 1040px;
         height: 700px;
-        // height: 100%;
+        @include lg-down {
+          width: 767px;
+          height: 500px;
+        }
       }
     }
 
@@ -76,7 +93,6 @@
   max-width: 368px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .title-place {
@@ -141,17 +157,25 @@
 }
 
 .wrapper-payment-information {
-  margin-top: 80px;
+  margin-top: 30px;
+}
+
+.checkbox-container {
+  position: relative;
 }
 
 .payment-checkbox {
-  transform: scale(1.5);
+  transform: scale(2);
+  top: 20px;
+  position: absolute;
 }
 
 .checkbox-text {
   max-width: 300px;
   display: inline-block;
-  margin-left: 30px;
+  line-height: 20px;
+  margin-left: 50px;
+
   color: $color-text;
 }
 
@@ -163,6 +187,8 @@
 .payment-text {
   font-size: 16px;
   color: $color-text;
+  text-align: justify;
+  line-height: 22px;
   margin-top: 20px;
 }
 
@@ -170,6 +196,9 @@
   color: $color-text;
   margin-top: 50px;
   font-size: 20px;
+  @include lg-down {
+    text-align: center;
+  }
 }
 
 .link {
@@ -190,5 +219,8 @@
   &:hover {
     background: none;
     color: $color-bronze;
+  }
+  @include lg-down {
+    margin-top: 60px;
   }
 }

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import VerificationForm from '../../hooks/emailVerification/EmailConfirmation';
+import VerificationForm from '../../hooks/emailVerification/VerificationForm';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -120,7 +120,7 @@ const SingleProduct = () => {
             <Swiper
               onSwiper={setThumbsSwiper}
               loop={true}
-              spaceBetween={10}
+              spaceBetween={0}
               slidesPerView={4}
               freeMode={true}
               watchSlidesProgress={true}
@@ -189,29 +189,29 @@ const SingleProduct = () => {
                   />
                 )}
               </>
-              <div className={cx('wrapper-payment-information')}>
-                <div>
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={chengeCheckbox}
-                    className={cx('payment-checkbox')}
-                  />
-                  <label className={cx('checkbox-text')}>
-                    <span className={cx('payment-star')}>*</span>
-                    Oświadczam, że zapoznałem się z następującymi informacjami
-                    dotyczącymi płatności za tę ofertę
-                  </label>
-                </div>
-
-                <p className={cx('payment-text')}>
-                  Opłata za usługę w znalezieniu najlepszej oferty w
-                  korzystniejszej cenie. Zapoluj na Wakacje nie pobiera żadnych
-                  opłat za bilety lotnicze, rezerwacje hoteli i transferu. Po
-                  dokonaniu płatności dostaną Państwo linki do samodzielnego
-                  zakupu biletów lotniczych, hotelu oraz transferu.
-                </p>
+            </div>{' '}
+            <div className={cx('wrapper-payment-information')}>
+              <div className={cx('checkbox-container')}>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={chengeCheckbox}
+                  className={cx('payment-checkbox')}
+                />
+                <label className={cx('checkbox-text')}>
+                  <span className={cx('payment-star')}>*</span>
+                  Oświadczam, że zapoznałem się z następującymi informacjami
+                  dotyczącymi płatności za tę ofertę
+                </label>
               </div>
+
+              <p className={cx('payment-text')}>
+                Opłata za usługę w znalezieniu najlepszej oferty w
+                korzystniejszej cenie. Zapoluj na Wakacje nie pobiera żadnych
+                opłat za bilety lotnicze, rezerwacje hoteli i transferu. Po
+                dokonaniu płatności dostaną Państwo linki do samodzielnego
+                zakupu biletów lotniczych, hotelu oraz transferu.
+              </p>
             </div>
           </div>
         </div>

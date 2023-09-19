@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const Hero = () => {
   const [name, setName] = useState(''),
-    [email, setMail] = useState(''),
+    [email, setEmail] = useState(''),
     [when_od, setWhen_od] = useState(''),
     [when_do, setWhen_do] = useState(''),
     [direction, setDirection] = useState(''),
@@ -44,7 +44,7 @@ const Hero = () => {
     }
 
     setName('');
-    setMail('');
+    setEmail('');
     setWhen_od('');
     setWhen_do('');
     setDirection('');
@@ -76,9 +76,9 @@ const Hero = () => {
               <input
                 className={cx('form-input')}
                 type="email"
-                placeholder="Mail"
+                placeholder="Email"
                 value={email}
-                onChange={(e) => setMail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -139,7 +139,7 @@ const Hero = () => {
               onChange={(e) => setMessage(e.target.value)}
             />
             <button type="submit" className={cx('button')}>
-              wysłać
+             Wysłać
             </button>
           </form>
         </div>

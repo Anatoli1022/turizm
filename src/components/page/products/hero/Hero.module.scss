@@ -7,7 +7,7 @@
 
 .button {
   cursor: pointer;
-  color: $color-text;
+  color: $color-brown-white;
   font-weight: 500;
   font-size: 16px;
   background: none;
@@ -22,14 +22,14 @@
   &::before {
     content: '';
     position: absolute;
-    background-color: $color-text;
+    background-color: $color-brown-white;
     width: 7px;
     height: 1px;
     transition: $transition-base;
   }
 
   &::before {
-    top:  50%;
+    top: 50%;
     right: -28px;
     transform: rotate(40deg);
   }
@@ -79,7 +79,7 @@
 
 .link {
   text-decoration: none;
-  color: $color-text;
+  color: $color-brown-white;
   margin-top: -4px;
 }
 

@@ -36,7 +36,7 @@
 }
 
 .item-title {
-  color: $color-text;
+  color: $color-brown-white;
   position: relative;
   margin-top: 0;
   margin-bottom: 0;
@@ -52,7 +52,7 @@
     width: 18px;
     height: 2px;
     content: '';
-    background-color: $color-text;
+    background-color: $color-brown-white;
     transition: all 0.3s ease 0s;
 
     @include sm-down {
@@ -74,7 +74,7 @@
 }
 
 .item-text {
-  color: $color-text;
+  color: $color-brown-white;
   display: none;
   margin-top: 10px;
   margin-bottom: 0;

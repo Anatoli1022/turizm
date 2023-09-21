@@ -49,7 +49,7 @@
 }
 
 .text {
-  color: $color-text;
+  color: $color-brown-white;
   font-weight: 600;
   font-size: 16px;
 }
@@ -61,7 +61,7 @@
 
 .span-date {
   font-weight: 600;
-  color: $color-text;
+  color: $color-brown-white;
 }
 
 .form-input {
@@ -71,7 +71,7 @@
   display: block;
   padding-right: 80px;
   font-size: 16px;
-  color: $color-text;
+  color: $color-brown-white;
   padding-bottom: 4px;
 
   &:focus-visible {
@@ -79,7 +79,7 @@
   }
 
   &::placeholder {
-    color: $color-text;
+    color: $color-brown-white;
     opacity: 0.8;
   }
 }
@@ -91,7 +91,7 @@
 
 .message {
   border: none;
-  color: $color-text;
+  color: $color-brown-white;
   font-size: 16px;
   background: none;
   height: 80px !important;
@@ -101,7 +101,7 @@
     outline: none;
   }
   &::placeholder {
-    color: $color-text;
+    color: $color-brown-white;
     opacity: 0.8;
   }
 }
@@ -116,6 +116,6 @@
   transition: $transition-base;
   &:hover {
     background: none;
-    color: $color-text;
+    color: $color-brown-white;
   }
 }

@@ -7,9 +7,10 @@ const cx = classNames.bind(styles);
 
 const VerificationForm = () => {
   const [email, setEmail] = useState('');
+  const [sentSuccessfullyText, setSentSuccessfullyText] = useState('');
   const [verificationSend, setVerificationSend] = useState(false);
   const [code, setCode] = useState('');
-  // const [codeVerification, setCodeVerification] = useState(false);
+  const [codeVerification, setCodeVerification] = useState(true);
 
   const sendVerificationEmail = async (e) => {
     e.preventDefault(); // Предотвращаем отправку формы
@@ -20,56 +21,79 @@ const VerificationForm = () => {
       });
 
       if (response.status === 200) {
-        alert('Verification email sent. Check your inbox for the link.');
         setVerificationSend(true);
-      } else {
-        alert('Failed to send verification email. Please try again later.');
+        setSentSuccessfullyText('E-mail wysłany pomyślnie ');
       }
     } catch (error) {
-      console.error('Error sending verification email:', error);
-      alert('Failed to send verification email. Please try again later.');
+      setSentSuccessfullyText('Nie można wysłać e-maila spróbuj później');
     }
   };
 
   function verificationCode() {
     if (code == '12414') {
-      // setCodeVerification(true);
       window.location.href = 'https://habr.com/ru/articles/519662/';
     } else {
-      // setCodeVerification(false);
+      setCodeVerification(false);
+      setSentSuccessfullyText('Nieprawidłowy kod spróbuj ponownie');
     }
   }
 
   return (
     <div className={cx('wrapper')}>
-      <h2 className={cx('title')}>Send Verification Email</h2>
-      <form onSubmit={sendVerificationEmail} className={cx('form')}>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit" className={cx('button')}>
-          Send Verification Email
-        </button>{' '}
-       
-        {/* {codeVerification && (
-          <a href="https://www.youtube.com/watch?v=ydPs2AdbW2k">Link pay</a>
-        )} */}
-      </form>
+      <div className={cx(verificationSend ? 'email-wrapper' : null)}>
+        {' '}
+        <h2 className={cx('title')}>Wyślij E-Mail Weryfikacyjny</h2>
+        <form onSubmit={sendVerificationEmail} className={cx('form')}>
+          <input
+            type="email"
+            placeholder="Wpisz swój email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={cx('input')}
+          />
+          <button type="submit" className={cx('button')}>
+            Wyślij
+          </button>
+          {!verificationSend && (
+            <p className={cx('information-text', 'information-text-error')}>
+              {sentSuccessfullyText}
+            </p>
+          )}
+        </form>
+      </div>
+
       {verificationSend && (
-          <div className={cx('verification')}>
+        <div>
+          <h2 className={cx('title')}>Wpisz kod z wiadomości</h2>
+          <form className={cx('verification')}>
             <input
-              placeholder="code"
+              placeholder="Сode"
               type="text"
               onChange={(e) => setCode(e.target.value)}
+              className={cx('input')}
             />
-            <button onClick={verificationCode} type="button">
-              Подтвердите код
+            <button
+              onClick={verificationCode}
+              type="button"
+              className={cx('button')}
+            >
+              Potwierdź kod
             </button>
-          </div>
-        )}
+            {verificationSend && (
+              <p
+                className={cx(
+                  'information-text',
+                  verificationSend && codeVerification
+                    ? 'information-text-successfully'
+                    : 'information-text-error'
+                )}
+              >
+                {sentSuccessfullyText}
+              </p>
+            )}
+          </form>
+        </div>
+      )}
     </div>
   );
 };

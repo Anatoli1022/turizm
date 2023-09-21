@@ -8,6 +8,60 @@
   margin-top: 30px;
 }
 
+.email-wrapper{
+  display: none; 
+}
+
 .form {
   margin-top: 15px;
+}
+
+.input {
+  border: none;
+  background: none;
+  padding: 5px;
+  color: $color-text;
+  border-bottom: 1px solid $color-text;
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+
+.button{
+  padding-top: 5px;
+  outline: none;
+  border: 1px solid $color-bronze;
+  padding-bottom: 5px;
+  cursor: pointer;
+  background-color: $color-bronze;
+  color: $color-white;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-text;
+    background: none;
+  }
+}
+
+.verification{
+  margin-top: 15px;
+}
+
+
+.information-text{
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  max-height: 300px;
+}
+
+.information-text-successfully{
+  color: $color-green;
+}
+
+.information-text-error{
+  color:$color-red;
 }

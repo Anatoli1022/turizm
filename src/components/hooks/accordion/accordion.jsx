@@ -5,11 +5,11 @@ import useOpen from '../open/open';
 
 const cx = classNames.bind(styles);
 
-export const Accordion = ({ section, key }) => {
+export const Accordion = ({ section }) => {
   const { isOpen, toggle } = useOpen(false);
 
   return (
-    <li className={cx('item', { active: isOpen == true })}>
+    <li className={cx('item', { active: isOpen === true })}>
       <Title question={section.question} isOpen={isOpen} toggle={toggle} />
       <Text text={section.text} />
     </li>

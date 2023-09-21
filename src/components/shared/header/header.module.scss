@@ -30,18 +30,29 @@ html[data-theme='dark'] .logo {
   align-items: center;
   justify-content: flex-end;
   column-gap: 30px;
+
+  @include sm-down {
+    display: none;
+  }
 }
-
-
 
 .link {
   font-size: 18px;
-  text-decoration: none;
   font-weight: 600;
-  color: $color-text;
-  text-transform: capitalize;
+  color: $color-brown-white;
   transition: $transition-base;
   &:hover {
     color: #b17d42;
+  }
+}
+
+
+.mobile-menu-wrapper{
+  display: none;
+
+  @include sm-down{
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
   }
 }

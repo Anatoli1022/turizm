@@ -4,7 +4,7 @@ import logo from '../../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme/useTheme';
 import ButtonTheme from '../../hooks/buttonTheme';
-
+import Menu from '../../hooks/menu';
 const cx = classNames.bind(styles);
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
   }
   return (
     <header className={cx('header')}>
-      <div className={cx('container-large')}>
+      <div className={cx('container')}>
         <nav className={cx('navigation')}>
           <Link to="/">
             <img src={logo} loading="eager" alt="" className={cx('logo')} />
@@ -26,23 +26,28 @@ const Header = () => {
           <ul className={cx('list')}>
             <li>
               <Link to="/" className={cx('link')}>
-                home
+               Home
               </Link>
             </li>
             <li>
               <Link to="/products" className={cx('link')}>
-                product
+                Product
               </Link>
             </li>
             <li>
               <Link to="/individualoffer" className={cx('link')}>
-                oferta spersonalizowana
+                Oferta spersonalizowana
               </Link>
             </li>
             <li>
-              <ButtonTheme onClick={handleClick} />
+              <ButtonTheme onClick={handleClick} className={cx('button-theme')} />
             </li>
           </ul>
+          <div className={cx('mobile-menu-wrapper')}>
+           
+            <ButtonTheme onClick={handleClick} />
+            <Menu />
+          </div>
         </nav>
       </div>
     </header>

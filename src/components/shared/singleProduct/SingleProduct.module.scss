@@ -13,41 +13,41 @@
   column-gap: 50px;
   flex-wrap: wrap;
   row-gap: 40px;
-
   @include lg-down {
+    row-gap: 20px;
   }
 }
 
 .wrapper {
   :global {
     .swiper {
-      max-width: 1040px;
-      @include lg-down {
+      &:nth-of-type(1) {
         max-width: 767px;
-        max-height: 600px;
-      }
-      &:nth-of-type(2) {
-        max-width: 1040px;
-
+        height: 500px;
+        //del
         @include lg-down {
           max-width: 767px;
+          max-height: 500px;
         }
+      }
+      &:nth-of-type(2) {
+        max-width: 767px;
+
         .swiper-wrapper {
           margin-top: 20px;
           // overflow: hidden;
           column-gap: 10px;
           max-height: 200px;
           justify-content: start;
-          @include lg-down {
-            column-gap: 20px;
-          }
+
           .swiper-slide {
             display: flex;
             justify-content: center;
             max-width: 200px;
+
             .image {
               border-radius: 16px;
-              width: 200px;
+              width: 192px;
               height: 140px;
             }
           }
@@ -59,7 +59,7 @@
       opacity: 0;
     }
     .swiper-wrapper {
-      max-height: 700px;
+      max-height: 767px;
       align-items: center;
     }
 
@@ -70,8 +70,9 @@
       .image {
         border-radius: 16px;
 
-        width: 1040px;
-        height: 700px;
+        width: 767px;
+        height: 500px;
+        //del
         @include lg-down {
           width: 767px;
           height: 500px;
@@ -80,11 +81,11 @@
     }
 
     .swiper-button-prev {
-      color: $color-text;
+      color: $color-brown-white;
     }
 
     .swiper-button-next {
-      color: $color-text;
+      color: $color-brown-white;
     }
   }
 }
@@ -93,12 +94,17 @@
   max-width: 368px;
   display: flex;
   flex-direction: column;
+  @include lg-down {
+  }
 }
 
 .title-place {
-  color: $color-text;
+  color: $color-brown-white;
   font-size: 26px;
   letter-spacing: 2px;
+  @include lg-down {
+    font-size: 20px;
+  }
 }
 
 .container-date {
@@ -106,7 +112,7 @@
 }
 
 .date {
-  color: $color-text;
+  color: $color-brown-white;
   font-size: 18px;
   margin-left: 40px;
   &:first-child {
@@ -121,7 +127,7 @@
 
 .price {
   display: block;
-  color: $color-text;
+  color: $color-brown-white;
   font-size: 18px;
   margin-top: 15px;
 }
@@ -136,7 +142,9 @@
   margin-top: 30px;
   color: $color-white;
   border-radius: 6px;
-  padding: 15px 150px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
   background-color: $color-bronze;
   transition: $transition-base;
   border: 1px solid $color-bronze;
@@ -175,8 +183,7 @@
   display: inline-block;
   line-height: 20px;
   margin-left: 50px;
-
-  color: $color-text;
+  color: $color-brown-white;
 }
 
 .payment-star {
@@ -186,14 +193,14 @@
 
 .payment-text {
   font-size: 16px;
-  color: $color-text;
+  color: $color-brown-white;
   text-align: justify;
   line-height: 22px;
   margin-top: 20px;
 }
 
 .description {
-  color: $color-text;
+  color: $color-brown-white;
   margin-top: 50px;
   font-size: 20px;
   @include lg-down {

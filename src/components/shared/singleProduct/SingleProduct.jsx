@@ -17,7 +17,6 @@ const cx = classNames.bind(styles);
 
 const SingleProduct = () => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -30,9 +29,7 @@ const SingleProduct = () => {
         const info = await res.json();
         setData(info);
         setIsLoading(false);
-      } catch (error) {
-        setError(error.message);
-      }
+      } catch {}
     }
 
     fetchData();
@@ -40,7 +37,7 @@ const SingleProduct = () => {
 
   const params = useParams();
 
-  const products = data.filter((data) => data.slug == params.slug);
+  const products = data.filter((data) => data.slug.toString() === params.slug);
 
   //single info for one product
   const singleInformation = products[0];
@@ -63,7 +60,7 @@ const SingleProduct = () => {
   //checkbox
   const [checked, setChecked] = useState(false);
 
-  function chengeCheckbox() {
+  function changeCheckbox() {
     setChecked(!checked);
   }
 
@@ -80,7 +77,7 @@ const SingleProduct = () => {
 
   return (
     <div className={cx('single-product')}>
-      <div className={cx('container-large', 'wrapper')}>
+      <div className={cx('container', 'wrapper')}>
         <div className={cx('single-product-container')}>
           <div>
             <Swiper
@@ -195,7 +192,7 @@ const SingleProduct = () => {
                 <input
                   type="checkbox"
                   checked={checked}
-                  onChange={chengeCheckbox}
+                  onChange={changeCheckbox}
                   className={cx('payment-checkbox')}
                 />
                 <label className={cx('checkbox-text')}>

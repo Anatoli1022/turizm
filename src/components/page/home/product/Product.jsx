@@ -17,7 +17,6 @@ const cx = classNames.bind(styles);
 
 const Product = () => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState('error 404 , page not found');
 
   useEffect(() => {
     async function fetchData() {
@@ -27,28 +26,24 @@ const Product = () => {
         );
         const info = await res.json();
         setData(info);
-      } catch (error) {
-        setError(error.message);
+      } catch {
+        alert('error 404 , page not found');
       }
     }
 
     fetchData();
   }, []);
 
-  console.log(data);
   return (
     <section className={cx('product')}>
       <div className={cx('container', 'wrapper')}>
         <h2 className={cx('title')}>Ostatnio dodane oferty</h2>
         <Swiper
-          // install Swiper modules
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={20}
           slidesPerView={3}
           navigation
           pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {data.slice(0, 6).map((product, index) => {
             return (
@@ -72,7 +67,6 @@ const Product = () => {
             );
           })}
         </Swiper>
-      
       </div>
     </section>
   );

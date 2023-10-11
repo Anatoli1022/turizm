@@ -67,8 +67,7 @@ const SingleProduct = () => {
   //
 
   const handleBuyButtonClick = () => {
-    // When "Kupić" button is clicked, show the email confirmation component
-    setShowConfirmation(true);
+    setShowConfirmation(!showConfirmation);
   };
 
   if (isLoading) {
@@ -179,14 +178,7 @@ const SingleProduct = () => {
               >
                 Kupić
               </button>
-              <>
-                {showConfirmation && (
-                  <VerificationForm
-                    onClose={() => setShowConfirmation(false)}
-                  />
-                )}
-              </>
-            </div>{' '}
+            </div>
             <div className={cx('wrapper-payment-information')}>
               <div className={cx('checkbox-container')}>
                 <input
@@ -211,6 +203,12 @@ const SingleProduct = () => {
               </p>
             </div>
           </div>
+
+          <VerificationForm
+            handleBuyButtonClick={handleBuyButtonClick}
+            showConfirmation={showConfirmation}
+            link={singleInformation.link}
+          />
         </div>
         <p className={cx('description')}>{singleInformation.description}</p>
         <Link to=".." relative="path" className={cx('link')}>

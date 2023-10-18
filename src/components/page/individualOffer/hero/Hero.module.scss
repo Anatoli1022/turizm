@@ -1,8 +1,7 @@
 @import '../../../../styles/variables.scss';
 
 .hero {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 150px;
 }
 
 .hero-container {
@@ -16,11 +15,15 @@
 .title {
   font-size: 80px;
   font-weight: 800;
-
   max-width: 600px;
   color: $color-black-white;
   line-height: 110%;
   letter-spacing: -1.2px;
+
+  @include sm-down {
+    text-align: center;
+    font-size: 40px;
+  }
 }
 
 .title-span {
@@ -41,11 +44,20 @@
   &:nth-of-type(2) {
     justify-content: space-between;
   }
+
+  @include sm-down {
+    row-gap: 20px;
+    flex-wrap: wrap;
+  }
 }
 
 .wrapper-date {
   display: flex;
   column-gap: 40px;
+  @include sm-down {
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }
 
 .text {
@@ -70,6 +82,7 @@
   border-bottom: 1px solid $color-black-white;
   display: block;
   padding-right: 80px;
+  width: 100%;
   font-size: 16px;
   color: $color-brown-white;
   padding-bottom: 4px;
@@ -81,6 +94,10 @@
   &::placeholder {
     color: $color-brown-white;
     opacity: 0.8;
+  }
+
+  @include sm-down {
+    padding-right: 0;
   }
 }
 

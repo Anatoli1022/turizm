@@ -1,6 +1,9 @@
 @import '../../../../styles/variables.scss';
 .product {
   padding-top: 150px;
+  @include sm-down {
+    padding-top: 50px;
+  }
 }
 
 .title {
@@ -13,14 +16,27 @@
   :global {
     .swiper {
       margin-top: 80px;
+      @include md-down {
+        max-width: 860px;
+      }
+      @include sm-down {
+        margin-top: 40px;
+        max-width: 320px;
+      }
     }
     .swiper-slide {
       width: 420px !important;
+      @include sm-down {
+        width: 320px !important;
+      }
     }
 
     .swiper-pagination {
       position: relative;
       margin-top: 60px;
+      @include sm-down {
+        margin-top: 30px;
+      }
     }
 
     .swiper-pagination-bullet {
@@ -55,6 +71,10 @@
   width: 420px;
   height: 280px;
   border-radius: 10px;
+  @include sm-down {
+    width: 320px;
+    height: 250px;
+  }
 }
 
 .image-title {
@@ -77,6 +97,10 @@
   top: 0;
   width: 420px;
   height: 280px;
+  @include sm-down {
+    width: 320px;
+    height: 250px;
+  }
 }
 
 .card-title {

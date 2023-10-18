@@ -9,7 +9,7 @@ $color-red: #e71111;
 $color-green: #257e3b;
 $color-hover: var(--color-hover);
 $color-accent-secondary: '';
-
+$color-white-black: var(--color-white-black);
 $color-brown-white-hover: '';
 $color-accent-primary-hover: '';
 $color-accent-secondary-hover: '';
@@ -61,13 +61,13 @@ $breakpoint-xs-down: 413px;
 }
 
 @mixin sm-down {
-  @media (max-width: #{$breakpoint-md-down}) {
+  @media (max-width: #{$breakpoint-sm-down}) {
     @content;
   }
 }
 
 @mixin xs-down {
-  @media (max-width: #{$breakpoint-md-down}) {
+  @media (max-width: #{$breakpoint-xs-down}) {
     @content;
   }
 }

@@ -25,5 +25,15 @@ export const Title = ({ question, toggle }) => {
 };
 
 export const Text = ({ text }) => {
-  return <p className={cx('item-text')}>{text}</p>;
+  return (
+    <>
+      {text.map((textItem, index) => {
+        return (
+          <p className={cx('item-text')} key={index}>
+            {textItem}
+          </p>
+        );
+      })}
+    </>
+  );
 };

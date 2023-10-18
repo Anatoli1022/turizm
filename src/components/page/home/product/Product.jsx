@@ -17,7 +17,8 @@ const cx = classNames.bind(styles);
 
 const Product = () => {
   const [data, setData] = useState([]);
-
+  const [slidesPerView, setSlidesPerView] = useState();
+  const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -34,6 +35,24 @@ const Product = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const handleResize = (event) => {
+      setWidth(event.target.innerWidth);
+      if (width <= 767) {
+        setSlidesPerView(1);
+      } else if (width <= 1023) {
+        setSlidesPerView(2);
+      }
+
+      if (width > 1023) {
+        setSlidesPerView(3);
+      } else if (width > 767) {
+        setSlidesPerView(2);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+  }, [width]);
+
   return (
     <section className={cx('product')}>
       <div className={cx('container', 'wrapper')}>
@@ -41,7 +60,7 @@ const Product = () => {
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={20}
-          slidesPerView={3}
+          slidesPerView={slidesPerView}
           navigation
           pagination={{ clickable: true }}
         >

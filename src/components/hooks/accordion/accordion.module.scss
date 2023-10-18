@@ -27,7 +27,6 @@
 
   .item-text {
     display: block;
-    margin-top: 25px;
 
     &:first-of-type {
       margin-top: 15px;
@@ -69,7 +68,7 @@
   }
 
   @include sm-down {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -78,9 +77,8 @@
   display: none;
   margin-top: 10px;
   margin-bottom: 0;
-  white-space: pre-wrap;
 
   @include sm-down {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

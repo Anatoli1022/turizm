@@ -14,6 +14,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 100px;
+
+  @include sm-down {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .contacts {
@@ -47,5 +52,9 @@
   display: flex;
   row-gap: 10px;
   column-gap: 15px;
+  align-items: center;
   margin-top: 20px;
+  @include sm-down {
+    justify-content: center;
+  }
 }

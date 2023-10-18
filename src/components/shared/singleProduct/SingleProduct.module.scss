@@ -3,7 +3,7 @@
 .single-product {
   padding-top: 150px;
   @include lg-down {
-    padding-top: 100px;
+    padding-top: 110px;
   }
 }
 
@@ -24,18 +24,25 @@
       &:nth-of-type(1) {
         max-width: 767px;
         height: 500px;
-        //del
-        @include lg-down {
-          max-width: 767px;
-          max-height: 500px;
+
+        @include sm-down {
+          max-width: 414px;
+          max-height: 350px;
+        }
+
+        @include xs-down {
+          max-width: 320px;
+          max-height: 280px;
         }
       }
       &:nth-of-type(2) {
         max-width: 767px;
-
+        @include sm-down {
+          display: none;
+        }
         .swiper-wrapper {
           margin-top: 20px;
-          // overflow: hidden;
+          overflow: hidden;
           column-gap: 10px;
           max-height: 200px;
           justify-content: start;
@@ -47,8 +54,8 @@
 
             .image {
               border-radius: 16px;
-              width: 192px;
-              height: 140px;
+              max-width: 192px;
+              max-height: 140px;
             }
           }
         }
@@ -69,23 +76,34 @@
 
       .image {
         border-radius: 16px;
-
         width: 767px;
         height: 500px;
-        //del
-        @include lg-down {
-          width: 767px;
-          height: 500px;
+
+        @include sm-down {
+          width: 414px;
+          height: 350px;
+        }
+        @include xs-down {
+          width: 320px;
+          height: 280px;
         }
       }
     }
 
-    .swiper-button-prev {
-      color: $color-brown-white;
-    }
-
+    .swiper-button-prev,
     .swiper-button-next {
       color: $color-brown-white;
+      @include sm-down {
+        &::after {
+          font-size: 30px;
+        }
+      }
+
+      @include xs-down {
+        &::after {
+          font-size: 20px;
+        }
+      }
     }
   }
 }

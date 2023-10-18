@@ -167,7 +167,7 @@ const SingleProduct = () => {
                 </span>
               </div>
               <span className={cx('price')}>
-                <span> Cena za osobę </span>{' '}
+                <span> Cena za osobę: </span>{' '}
                 <span className={cx('price-number')}>
                   {singleInformation.price}zł
                 </span>

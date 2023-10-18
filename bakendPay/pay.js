@@ -43,8 +43,8 @@ app.post('/initiate-payment', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000', // Ссылка на успешную оплату
-      cancel_url: 'http://localhost:3000', // Ссылка на отмену оплаты
+      success_url: 'http://localhost:3000/paymentsuccessage', // Ссылка на успешную оплату
+      cancel_url: 'http://localhost:3000/failedpayment', // Ссылка на отмену оплаты
       
     });
 

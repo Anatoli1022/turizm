@@ -26,12 +26,12 @@ const Header = () => {
           <ul className={cx('list')}>
             <li>
               <Link to="/" className={cx('link')}>
-               Home
+               Strona główna
               </Link>
             </li>
             <li>
               <Link to="/products" className={cx('link')}>
-                Product
+                Nasza oferta
               </Link>
             </li>
             <li>

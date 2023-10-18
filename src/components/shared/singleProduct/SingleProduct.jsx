@@ -215,7 +215,7 @@ const SingleProduct = () => {
         </div>
         <p className={cx('description')}>{singleInformation.description}</p>
         <Link to=".." relative="path" className={cx('link')}>
-          All Products
+          Wszystkie oferty
         </Link>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Hero.module.scss';
+import axios from 'axios';
 import emailjs from 'emailjs-com'; // Import the EmailJS library
 
 const cx = classNames.bind(styles);
@@ -16,32 +17,56 @@ const Hero = () => {
     [budget, setBudget] = useState(''),
     [message, setMessage] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    // Send email using EmailJS
-    try {
-      await emailjs.send(
-        'service_z87utcq', // Your EmailJS service ID
-        'template_re54j3t', // Your EmailJS template ID
-        {
+    const sendIndividualOffer = async (e) => {
+      e.preventDefault(); // Предотвращаем отправку формы
+  
+      try {
+        const response = await axios.post('http://localhost:3001/individual-offer', {
           name: name,
-          email: email,
-          when_od: when_do,
+          to: email,
+          when_od: when_od,
           when_do: when_do,
           direction: direction,
           people: people,
           dining: dining,
           budget: budget,
           message: message,
-        },
-        'kL9gMMPRUTzr5AXLK' // Your EmailJS user ID
-      );
+        });
+  
+        // if (response.status === 200) {
+        //   setVerificationSend(true);
+        //   setText(`E-mail wysłany pomyślnie na ${email}`);
+        // }
+      } catch (error) {
+        console.log('Nie można wysłać e-maila spróbuj później');
+      }
+   
+    // Send email using EmailJS
+    // try {
+    //   await emailjs.send(
+    //     'service_z87utcq', // Your EmailJS service ID
+    //     'template_re54j3t', // Your EmailJS template ID
+    //     {
+    //       name: name,
+    //       email: email,
+    //       when_od: when_do,
+    //       when_do: when_do,
+    //       direction: direction,
+    //       people: people,
+    //       dining: dining,
+    //       budget: budget,
+    //       message: message,
+    //     },
+    //     'kL9gMMPRUTzr5AXLK' // Your EmailJS user ID
+    //   );
 
-      console.log('Email sent successfully!');
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
+    //   console.log('Email sent successfully!');
+    // } catch (error) {
+    //   console.error('Error sending email:', error);
+    // }
 
     setName('');
     setEmail('');
@@ -64,7 +89,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className={cx('wrapper-form')}>
-          <form onSubmit={handleSubmit} className={cx('form')}>
+          <form onSubmit={sendIndividualOffer} className={cx('form')}>
             <div className={cx('wrapper-input')}>
               <input
                 className={cx('form-input')}

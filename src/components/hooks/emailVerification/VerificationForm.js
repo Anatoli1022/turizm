@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const VerificationForm = ({ link, showConfirmation, handleBuyButtonClick }) => {
+const VerificationForm = ({fromDeparture, toDeparture, toDate, returnDate, showConfirmation, handleBuyButtonClick }) => {
   const [email, setEmail] = useState('');
   const [text, setText] = useState('');
   const [verificationSend, setVerificationSend] = useState(false);
@@ -42,8 +42,11 @@ const VerificationForm = ({ link, showConfirmation, handleBuyButtonClick }) => {
         const response = await axios.post(
           'http://localhost:4242/initiate-payment',
           {
-            to: email, // Поле 'to' - адрес получателя
-            link: link,
+            to: email,
+            fromDeparture: fromDeparture,
+            toDeparture: toDeparture,
+            toDate: toDate,
+            returnDate: returnDate,
           }
         );
 

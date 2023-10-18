@@ -24,7 +24,7 @@ const SingleProduct = () => {
     async function fetchData() {
       try {
         const res = await fetch(
-          'https://turizm123.000webhostapp.com/php/transmitted_data/data_singleProduct.php'
+          'https://zapolujnawakacje.000webhostapp.com/php/transmitted_data/data_singleProduct.php'
         );
         const info = await res.json();
         setData(info);
@@ -207,7 +207,10 @@ const SingleProduct = () => {
           <VerificationForm
             handleBuyButtonClick={handleBuyButtonClick}
             showConfirmation={showConfirmation}
-            link={singleInformation.link}
+            toDeparture = {singleInformation.to}
+            fromDeparture = {singleInformation.from}
+            toDate = {formattedDepartureDate}
+            returnDate = {formattedReturnDate}
           />
         </div>
         <p className={cx('description')}>{singleInformation.description}</p>

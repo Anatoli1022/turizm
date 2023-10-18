@@ -17,7 +17,7 @@ const cx = classNames.bind(styles);
 
 const Product = () => {
   const [data, setData] = useState([]);
-  const [slidesPerView, setSlidesPerView] = useState();
+  const [slidesPerView, setSlidesPerView] = useState(3);
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     async function fetchData() {

@@ -1,0 +1,28 @@
+@import '../../../../styles/variables.scss';
+
+.payment-success {
+  padding-top: 130px;
+}
+
+.payment-container {
+  text-align: center;
+  max-width: 512px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  width: 100%;
+}
+.title {
+  font-size: 40px;
+  color: $color-red;
+  margin-top: 20px;
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 30px;
+  color: $color-black-white;
+}

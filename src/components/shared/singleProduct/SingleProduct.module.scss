@@ -50,12 +50,12 @@
           .swiper-slide {
             display: flex;
             justify-content: center;
-            max-width: 200px;
+            width: 200px !important;
 
             .image {
               border-radius: 16px;
-              max-width: 192px;
-              max-height: 140px;
+              width: 192px;
+              height: 140px;
             }
           }
         }

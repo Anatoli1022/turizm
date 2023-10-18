@@ -117,7 +117,7 @@ const SingleProduct = () => {
               onSwiper={setThumbsSwiper}
               loop={true}
               spaceBetween={0}
-              slidesPerView={8}
+              slidesPerView={3}
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Navigation, Thumbs]}

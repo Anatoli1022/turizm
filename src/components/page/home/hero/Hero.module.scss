@@ -25,11 +25,18 @@
   font-size: 30px;
   color: $color-brown;
   text-transform: uppercase;
+  @include sm-down {
+    font-size: 25px;
+  }
 }
 
 .title-span {
   font-size: 70px;
   display: block;
+
+  @include sm-down {
+    font-size: 50px;
+  }
 }
 
 .text {

@@ -2,7 +2,7 @@
 
 .single-product {
   padding-top: 150px;
-  @include lg-down {
+  @include sm-down {
     padding-top: 110px;
   }
 }
@@ -193,6 +193,7 @@
 .payment-checkbox {
   transform: scale(2);
   top: 20px;
+  left: 6px;
   position: absolute;
 }
 

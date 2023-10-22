@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Hero.module.scss';
 import axios from 'axios';
-import emailjs from 'emailjs-com'; // Import the EmailJS library
 
 const cx = classNames.bind(styles);
 
@@ -15,16 +14,17 @@ const Hero = () => {
     [people, setPeople] = useState(''),
     [dining, setDining] = useState(''),
     [budget, setBudget] = useState(''),
-    [message, setMessage] = useState('');
+    [message, setMessage] = useState(''),
+    [sendSuccessfully, setSendSendSuccessfully] = useState(),
+    [sendFailed, setSendFailed] = useState();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const sendIndividualOffer = async (e) => {
+    e.preventDefault(); // Предотвращаем отправку формы
 
-    const sendIndividualOffer = async (e) => {
-      e.preventDefault(); // Предотвращаем отправку формы
-  
-      try {
-        const response = await axios.post('http://localhost:3001/individual-offer', {
+    try {
+      const response = await axios.post(
+        'http://localhost:3001/individual-offer',
+        {
           name: name,
           to: email,
           when_od: when_od,
@@ -34,39 +34,16 @@ const Hero = () => {
           dining: dining,
           budget: budget,
           message: message,
-        });
-  
-        // if (response.status === 200) {
-        //   setVerificationSend(true);
-        //   setText(`E-mail wysłany pomyślnie na ${email}`);
-        // }
-      } catch (error) {
-        console.log('Nie można wysłać e-maila spróbuj później');
+        }
+      );
+      if (response.status === 200) {
+        setSendSendSuccessfully(true);
+        setTimeout(() => setSendSendSuccessfully(false), 5000);
       }
-   
-    // Send email using EmailJS
-    // try {
-    //   await emailjs.send(
-    //     'service_z87utcq', // Your EmailJS service ID
-    //     'template_re54j3t', // Your EmailJS template ID
-    //     {
-    //       name: name,
-    //       email: email,
-    //       when_od: when_do,
-    //       when_do: when_do,
-    //       direction: direction,
-    //       people: people,
-    //       dining: dining,
-    //       budget: budget,
-    //       message: message,
-    //     },
-    //     'kL9gMMPRUTzr5AXLK' // Your EmailJS user ID
-    //   );
-
-    //   console.log('Email sent successfully!');
-    // } catch (error) {
-    //   console.error('Error sending email:', error);
-    // }
+    } catch (error) {
+      setSendFailed(true);
+      setTimeout(() => setSendFailed(false), 5000);
+    }
 
     setName('');
     setEmail('');
@@ -164,9 +141,19 @@ const Hero = () => {
               onChange={(e) => setMessage(e.target.value)}
             />
             <button type="submit" className={cx('button')}>
-             Wysłać
+              Wysłać
             </button>
           </form>
+          {sendSuccessfully && (
+            <p className={cx('email-send', 'successfully')}>
+              E-mail wysłany pomyślnie
+            </p>
+          )}
+          {sendFailed && (
+            <p className={cx('email-send', 'failed')}>
+              Nie można wysłać e-maila spróbuj ponownie
+            </p>
+          )}
         </div>
       </div>
     </section>

@@ -51,6 +51,7 @@ const Product = () => {
       }
     };
     window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleResize);
   }, [width]);
 
   return (

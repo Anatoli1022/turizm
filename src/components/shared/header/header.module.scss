@@ -27,6 +27,16 @@
 
 .logo {
   max-width: 130px;
+
+  @include lg-down{
+    max-width: 120px;
+  }
+
+  @include md-down{
+    max-width: 100px;
+  }
+
+  
 }
 
 html[data-theme='dark'] .logo {

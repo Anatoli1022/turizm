@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import SingleProduct from './components/shared/singleProduct/SingleProduct';
 import IndividualOffer from './pages/IndividualOffer';
+import Information from './pages/Information';
 import PaymentSuccessPage from './pages/PaymentSuccessPage'; 
 import FailedPayment from './pages/FailedPaymentPage.jsx';
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="products" element={<Products />} />
           <Route path="individualoffer" element={<IndividualOffer />} />
           <Route path="paymentsuccessage" element={<PaymentSuccessPage />} /> 
+          <Route path='aboutus' element={<Information/>}/>
           <Route path="failedpayment" element={<FailedPayment />} />
           <Route path="products/:slug" element={<SingleProduct />} />
         </Route>

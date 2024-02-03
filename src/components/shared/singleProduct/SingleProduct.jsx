@@ -35,14 +35,14 @@ const SingleProduct = () => {
     fetchData();
   }, []);
 
+  console.log(data);
+
   const params = useParams();
 
   const products = data.filter((data) => data.slug.toString() === params.slug);
 
-  //single info for one product
   const singleInformation = products[0];
 
-  //reverse data
   const formatDate = (dateString) => {
     if (!dateString) {
       return '';
@@ -57,14 +57,11 @@ const SingleProduct = () => {
   const formattedDepartureDate = formatDate(singleInformation?.departure_date);
   const formattedReturnDate = formatDate(singleInformation?.return_date);
 
-  //checkbox
   const [checked, setChecked] = useState(false);
 
   function changeCheckbox() {
     setChecked(!checked);
   }
-
-  //
 
   const handleBuyButtonClick = () => {
     setShowConfirmation(!showConfirmation);
@@ -207,10 +204,10 @@ const SingleProduct = () => {
           <VerificationForm
             handleBuyButtonClick={handleBuyButtonClick}
             showConfirmation={showConfirmation}
-            toDeparture = {singleInformation.to}
-            fromDeparture = {singleInformation.from}
-            toDate = {formattedDepartureDate}
-            returnDate = {formattedReturnDate}
+            toDeparture={singleInformation.to}
+            fromDeparture={singleInformation.from}
+            toDate={formattedDepartureDate}
+            returnDate={formattedReturnDate}
           />
         </div>
         <p className={cx('description')}>{singleInformation.description}</p>
